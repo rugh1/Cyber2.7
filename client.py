@@ -77,7 +77,7 @@ if __name__ == '__main__':
     assert COMMAND_PATTERN.match(r"DIR C:\Users")
     assert COMMAND_PATTERN.match(r"DELETE C:\Users")
     assert COMMAND_PATTERN.match(r"COPY C:\randompath\file1 C:\randompath\file2")
-    assert COMMAND_PATTERN.match(r"C:\Windows\System32\notepad.exe")
+    assert COMMAND_PATTERN.match(r"EXECUTE C:\Windows\System32\notepad.exe")
     assert COMMAND_PATTERN.match(r"TAKE_SCREENSHOT")
     assert COMMAND_PATTERN.match(r"SEND_PHOTO") 
     main()
