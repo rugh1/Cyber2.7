@@ -71,4 +71,17 @@ python server.py
 
 ![Sequence Diagram](https://github.com/rugh1/Cyber2.7/raw/master/diagram.png)
 
-...
+## Protocol Description
+
+The communication between the server and client in the Cyber2.7 project is facilitated by a custom communication protocol. This protocol defines the structure and format of messages exchanged between the server and clients, ensuring a standardized and efficient communication process.
+
+### Message Structure
+
+A message in the Cyber2.7 protocol consists of a list of elements, where each element represents a part of the message. The structure of the list varies based on the specific command being sent. Typically, the first element of the list represents the command itself, followed by additional parameters or data required for the execution of that command.
+
+### Example
+
+As an illustrative example, consider the following structure for the DIR command:
+
+```python
+['DIR', '/path/to/directory']...
