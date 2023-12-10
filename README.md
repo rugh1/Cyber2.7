@@ -44,7 +44,7 @@ This project consists of a server and a client designed for Cyber2.7 work. The s
 4. **EXECUTE Command**
     - **Description**: Execute a command.
     - **Usage**: `EXECUTE command`
-    - **Example**: `EXECUTE notepad.exe`
+    - **Example**: `EXECUTE C:\Windows\System32\notepad.exe`
 
 5. **TAKE_SCREENSHOT Command**
     - **Description**: Take a screenshot and save it as 'screen.jpg'.
