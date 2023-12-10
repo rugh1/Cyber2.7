@@ -7,6 +7,8 @@ import socket
 import logging
 import os
 from protocol import *
+from function_test import *
+
 import functions
 import traceback
 
@@ -19,7 +21,6 @@ LOG_FILE =  LOG_DIR + '/server.log'
 # Server configuration
 IP = '127.0.0.1'
 PORT = 25565
-MAX_PACKET = 1024
 QUEUE_LEN = 1
 DISCONNECT_MESSAGE = "bye now"
 
@@ -113,4 +114,10 @@ if __name__ == '__main__':
     if not os.path.exists(LOG_DIR):
         os.makedirs(LOG_DIR)
     logging.basicConfig(filename=LOG_FILE, level=LOG_LEVEL, format=LOG_FORMAT)
+    # Run the tests
+    test_dir_cmd()
+    test_delete_cmd()
+    test_copy_cmd()
+    test_take_screenshot_cmd()
+    test_exit_cmd()
     run_server()

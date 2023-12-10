@@ -15,7 +15,6 @@ from PIL import Image
 
 IP = '127.0.0.1'
 PORT = 25565
-MAX_PACKET = 1024
 INPUT_MESSAGE = "enter from the following commands: DIR path , DELETE path ,  COPY path_to_copy_from path_to_copy_to , EXECUTE path , TAKE_SCREENSHOT , SEND_PHOTO , EXIT"
 COMMAND_PATTERN = re.compile(r'^(DIR|DELETE|COPY|EXECUTE|TAKE_SCREENSHOT|SEND_PHOTO|EXIT)(?:\s[\w\s.:/\\]+)?$')
 
@@ -75,5 +74,10 @@ if __name__ == '__main__':
     if not os.path.exists(LOG_DIR):
         os.makedirs(LOG_DIR)
     logging.basicConfig(filename=LOG_FILE, level=LOG_LEVEL, format=LOG_FORMAT)
-
+    assert COMMAND_PATTERN.match(r"DIR C:\Users")
+    assert COMMAND_PATTERN.match(r"DELETE C:\Users")
+    assert COMMAND_PATTERN.match(r"COPY C:\randompath\file1 C:\randompath\file2")
+    assert COMMAND_PATTERN.match(r"EXECUTE C:\Windows\System32\notepad.exe")
+    assert COMMAND_PATTERN.match(r"TAKE_SCREENSHOT")
+    assert COMMAND_PATTERN.match(r"SEND_PHOTO") 
     main()
