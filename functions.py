@@ -10,7 +10,7 @@ IMAGE_PLACE = 'image-place.'
 def dir_cmd(msg):
     output = ERR
     try:
-        output = glob.glob(msg[1] + '\\*.*')
+        output = ','.join(glob.glob(msg[1] + '\\*.*'))
 
     except Exception as err:
         output += ' ' + str(err)
@@ -65,3 +65,6 @@ def take_screenshot_cmd(msg):
     finally:
         return output
 
+
+def exit_cmd(msg):
+    return "bye now"
