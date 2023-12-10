@@ -22,8 +22,6 @@ This project consists of a server and a client designed for Cyber2.7 work. The s
 
 - **IP and Port**: The server is configured to listen on IP address '127.0.0.1' and port '25565'.
 
-- **Maximum Packet Size**: The maximum packet size for communication is set to 1024 bytes.
-
 - **Queue Length**: The server accepts only one connection at a time with a queue length of 1.
 
 ### Commands
