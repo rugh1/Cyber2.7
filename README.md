@@ -51,6 +51,11 @@ This project consists of a server and a client designed for Cyber2.7 work. The s
     - **Usage**: `TAKE_SCREENSHOT`
     - **Example**: `TAKE_SCREENSHOT`
 
+6. **SEND_PHOTO Command**
+    - **Description**: Sends screenshot 'screen.jpg' on server to client and opens it from there the client user can do what ever he wants.
+    - **Usage**: `SEND_PHOTO`
+    - **Example**: `SEND_PHOTO`
+    - 
 ### How to Run
 
 1. Ensure the 'protocol' module is available.
