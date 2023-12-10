@@ -62,3 +62,10 @@ This project consists of a server and a client designed for Cyber2.7 work. The s
 
 ```bash
 python server.py
+```
+
+## Sequence Diagram
+
+![Sequence Diagram](https://github.com/rugh1/Cyber2.7/raw/master/diagram.png)
+
+...
