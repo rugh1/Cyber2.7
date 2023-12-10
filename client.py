@@ -45,8 +45,12 @@ def main():
                 response = ' '.join(recv(client_socket))
                 if 'SEND_PHOTO' in request:
                     decoded_string = base64.b64decode(response)
-                    image = Image.open(BytesIO(decoded_string))
-                    image.show()
+                    try:
+                        image = Image.open(BytesIO(decoded_string))
+                        image.show()
+                    except Exception as err:
+                        print("check if screenshot exists" + str(err))
+                    
                 else:
                     print(response)
                     no_exit = "EXIT" not in request
@@ -60,8 +64,13 @@ def main():
         logging.error(err)
     finally:
         # Close the client socket
-        client_socket.close()
-        logging.info("Disconnected from the server")
+        try:
+            send(client_socket, "client crashed")
+        except Exception:
+            pass
+        finally:
+            client_socket.close()
+            logging.info("Disconnected from the server")
 
 
 if __name__ == '__main__':

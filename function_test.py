@@ -8,8 +8,8 @@ import glob
 import os
 import shutil
 import subprocess
-import pyautogui
 from functions import *
+
 
 def test_dir_cmd():
     """
@@ -20,6 +20,7 @@ def test_dir_cmd():
     """
     assert dir_cmd(["dir_cmd", "C:"]) != ERR
     assert dir_cmd(["dir_cmd", "path/to/nonexistent/directory"]) == "directory doesnt exist"
+
 
 def test_delete_cmd():
     """
@@ -36,6 +37,7 @@ def test_delete_cmd():
     assert delete_cmd(["delete_cmd", "temp_file.txt"]) == "file deleted successfully"
     assert not os.path.exists("temp_file.txt")
 
+
 def test_copy_cmd():
     """
     Test function for the copy_cmd command.
@@ -51,6 +53,7 @@ def test_copy_cmd():
     assert copy_cmd(["copy_cmd", "temp_file.txt", "temp_file_copy.txt"]) == "file copied successfully"
     assert os.path.exists("temp_file_copy.txt")
 
+
 def test_take_screenshot_cmd():
     """
     Test function for the take_screenshot_cmd command.
@@ -61,6 +64,7 @@ def test_take_screenshot_cmd():
     assert take_screenshot_cmd(["take_screenshot_cmd"]) == "screenshot was taken successfully"
     assert os.path.exists("screen.jpg")
     os.remove("screen.jpg")
+
 
 def test_exit_cmd():
     """
