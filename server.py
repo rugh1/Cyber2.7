@@ -16,13 +16,14 @@ import traceback
 LOG_FORMAT = '%(levelname)s | %(asctime)s | %(processName)s | %(message)s'
 LOG_LEVEL = logging.DEBUG
 LOG_DIR = 'log'
-LOG_FILE =  LOG_DIR + '/server.log'
+LOG_FILE = LOG_DIR + '/server.log'
 
 # Server configuration
 IP = '127.0.0.1'
 PORT = 25565
 QUEUE_LEN = 1
 DISCONNECT_MESSAGE = "bye now"
+
 
 
 def handle_client(client_socket, client_address):
@@ -102,6 +103,7 @@ def run_server():
     finally:
         # Close the server socket when done
         server_socket.close()
+
 
 
 if __name__ == '__main__':

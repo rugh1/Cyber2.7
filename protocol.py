@@ -4,6 +4,8 @@ Date: 10.12.2023
 Description: protocol for cyber2.7 work
 """
 import socket
+
+
 def send(connected_socket, msg):
     """
     Send a message over the connected socket.
@@ -19,13 +21,13 @@ def send(connected_socket, msg):
     """
     # Check if the last character of the 'msg' string is a space
     if msg[-1] == ' ':
-    # If the last character is a space, remove it from the 'msg' string
-        msg = msg[:-1] 
+        # If the last character is a space, remove it from the 'msg' string
+        msg = msg[:-1]
 
-# Convert the length of the 'msg' string to hexadecimal representation, excluding the '0x' prefix
+    # Convert the length of the 'msg' string to hexadecimal representation, excluding the '0x' prefix
     msg = hex(len(msg))[2:] + '!' + '!'.join(msg.split())
 
-# Encode the modified 'msg' string and send it through the 'connected_socket'
+    # Encode the modified 'msg' string and send it through the 'connected_socket'
     connected_socket.send(msg.encode())
 
 
@@ -44,7 +46,7 @@ def recv(connected_socket):
     while '!' not in length_hex:
         length_hex += connected_socket.recv(1).decode()
     length_hex = length_hex[:-1]
-    
+
     # Convert the length to an integer
     length = int(length_hex, 16)
 
@@ -55,6 +57,7 @@ def recv(connected_socket):
 
     # Split the received message using '!!' as the separator
     return received_msg.split('!')
+
 
 if __name__ == '__main__':
     pass

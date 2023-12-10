@@ -10,8 +10,8 @@ import shutil
 import subprocess
 import pyautogui
 
-
 ERR = "error has occurred"
+
 
 def dir_cmd(msg):
     """
@@ -25,16 +25,17 @@ def dir_cmd(msg):
     """
     output = ERR
     try:
-        if(len(msg) < 2):
-             output = 'pls enter the all reqiured parm'
-        else: 
+        if len(msg) < 2:
+            output = 'pls enter the all reqiured parm'
+        else:
             output = ','.join(glob.glob(msg[1] + '\\*.*'))
-            if(output == ''):
+            if output == '':
                 output = 'directory doesnt exist'
     except Exception as err:
         output += ' ' + str(err)
     finally:
         return output
+
 
 def delete_cmd(msg):
     """
@@ -48,15 +49,16 @@ def delete_cmd(msg):
     """
     output = ERR
     try:
-        if(len(msg) < 2):
-             output = 'pls enter the all reqiured parm'
-        else: 
+        if len(msg) < 2:
+            output = 'pls enter the all reqiured parm'
+        else:
             os.remove(msg[1])
             output = 'file deleted successfully'
     except Exception as err:
         output += ' ' + str(err)
     finally:
         return output
+
 
 def copy_cmd(msg):
     """
@@ -70,15 +72,16 @@ def copy_cmd(msg):
     """
     output = ERR
     try:
-        if(len(msg) < 3):
-             output = 'pls enter the all reqiured parm'
-        else: 
+        if len(msg) < 3:
+            output = 'pls enter the all reqiured parm'
+        else:
             shutil.copy(msg[1], msg[2])
             output = 'file copied successfully'
     except Exception as err:
         output += ' ' + str(err)
     finally:
         return output
+
 
 def execute_cmd(msg):
     """
@@ -92,15 +95,16 @@ def execute_cmd(msg):
     """
     output = ERR
     try:
-        if(len(msg) < 2):
-             output = 'pls enter the all reqiured parm'
-        else: 
+        if len(msg) < 2:
+            output = 'pls enter the all reqiured parm'
+        else:
             subprocess.call(msg[1])
             output = 'command executed successfully'
     except Exception as err:
         output += ' ' + str(err)
     finally:
         return output
+
 
 def take_screenshot_cmd(msg):
     """
@@ -122,6 +126,7 @@ def take_screenshot_cmd(msg):
     finally:
         return output
 
+
 def send_photo_cmd(msg):
     """
     Sends screenshot.
@@ -135,7 +140,7 @@ def send_photo_cmd(msg):
     output = ERR
     try:
         with open('screen.jpg', "rb") as image_file:
-            #encode image to base64 as astring
+            # encode image to base64 as astring
             encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
         output = encoded_string
     except Exception as err:
