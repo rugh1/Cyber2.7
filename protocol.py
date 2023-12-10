@@ -1,5 +1,9 @@
+"""
+Author: Rugh1
+Date: 10.12.2023
+Description: protocol for cyber2.7 work
+"""
 import socket
-
 def send(connected_socket, msg):
     """
     Send a message over the connected socket.

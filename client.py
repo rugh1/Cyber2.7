@@ -1,9 +1,17 @@
+"""
+Author: Rugh1
+Date: 10.12.2023
+Description: client for cyber2.7 work
+"""
+import base64
+from io import BytesIO
 import socket
 import re
 import logging
 import os
 import traceback
 from protocol import *
+from PIL import Image
 
 IP = '127.0.0.1'
 PORT = 25565
@@ -36,9 +44,14 @@ def main():
             if COMMAND_PATTERN.match(request):
                 send(client_socket, request)
                 response = ' '.join(recv(client_socket))
-                print(response)
-                no_exit = "EXIT" not in request
-                logging.debug(f"Received response: {response}")
+                if 'SEND_PHOTO' in request:
+                    decoded_string = base64.b64decode(response)
+                    image = Image.open(BytesIO(decoded_string))
+                    image.show()
+                else:
+                    print(response)
+                    no_exit = "EXIT" not in request
+                    logging.debug(f"Received response: {response}")
             else:
                 print(f"Please enter one of the following commands: {INPUT_MESSAGE} or provide a correct path")
 

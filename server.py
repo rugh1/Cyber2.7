@@ -1,3 +1,8 @@
+"""
+Author: Rugh1
+Date: 10.12.2023
+Description: server  for cyber2.7 work
+"""
 import socket
 import logging
 import os
@@ -77,13 +82,11 @@ def run_server():
     :return: None
     :rtype: None
     """
-    print("nana")
     try:
         # Set up the server socket
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server_socket.bind((IP, PORT))
         server_socket.listen(QUEUE_LEN)
-        print("nana")
         while True:
             # Wait for incoming connections
             logging.info("Waiting for connections...")
